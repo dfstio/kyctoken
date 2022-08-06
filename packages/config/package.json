@@ -1,0 +1,12 @@
+{
+  "name": "@kyctoken/config",
+  "version": "1.0.0",
+  "description": "configuration for kyctoken",
+  "main": "config.json",
+  "author": "Benjamind Herald",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
+}

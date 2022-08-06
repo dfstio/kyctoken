@@ -1,0 +1,14 @@
+{
+    "RPC_MUMBAI": "https://polygon-mumbai.g.alchemy.com/v2/BwVbde2aMs_mNN8KLFIZl6037vvZMAnH",
+	"RPC_POLYGON": "",
+	"RPC_ETHEREUM": "",
+	"RPC_GOERLI": "https://eth-goerli.alchemyapi.io/v2/w7f0EieVtQtei2zdEvEjVL-lLIEoQY5S",
+	"RPC_L3_ENDPOINT": "https://rpc.nftvirtuoso.io",
+	"RPC_L3_USER": "list",
+	"RPC_L3_PASSWORD": "pzE4oTtyBnNsJP5G152sS",
+	"RPC_L3_HARDHAT": "https://list:pzE4oTtyBnNsJP5G152sS@rpc3.nftvirtuoso.io",
+	"CHAINID_L3": 7877,
+	"KEY_MUMBAI": "FQ1NYZXPQIICKE7U41VSRB7TPKZJQKI7SH",
+	"KEY_ETHERSCAN": "H1HEXZXYIYCV58Y1U9PXNARG9DXNXH87B8",
+	"KEY_OWNER": "0x516fa1480ed4c04f55737b82597f64d119317087a52d10c84811fa6c1a004ac3"
+}

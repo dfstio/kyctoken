@@ -1,0 +1,52 @@
+{
+  "name": "@kyctoken/cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Benjamin Herald",
+  "license": "MIT",
+  "scripts": {
+    "cli": "ts-node src/cli.ts",
+    "archive": "git archive -o cli.zip HEAD",
+    "lint": "eslint src/*.ts",
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "build": "tsc",
+    "clean": "rm -r dist/*",
+    "upgrade": "yarn upgrade-interactive"
+  },
+  "dependencies": {
+    "@kyctoken/config": "1.0.0",
+    "axios": "^0.27.2",
+    "commander": "^9.4.0",
+    "ethers": "^5.6.9"
+  },
+  "devDependencies": {
+    "@types/jest": "^28.1.6",
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
+    "@typescript-eslint/parser": "^5.32.0",
+    "eslint": "^8.21.0",
+    "jest": "^28.1.3",
+    "ts-jest": "^28.0.7",
+    "typescript": "^4.7.4"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "rules": {}
+  },
+  "bin": "./src/cli.ts"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@kyctoken/monorepo",
+  "version": "1.0.0",
+  "description": "ERC20 token with KYC",
+  "main": "index.js",
+  "repository": "https://github.com/Benjamin-Herald/kyctoken",
+  "author": "Benjamin Herald",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "start": "yarn ",
+    "build": "yarn ",
+    "cli": "yarn workspace @kyctoken/cli cli",
+    "push": "git push -u originkyctoken master",
+    "gitcreate": "git remote add originkyctoken https://github.com/Benjamin-Herald/kyctoken",
+    "commit": "git commit -a -S -m",
+    "githubcleartoken": "git config --global --unset credential.helper",
+    "link": "npm link"
+  },
+  "bin": {
+    "kyc": "./packages/cli/src/cli.ts"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "packageManager": "yarn@3.2.2"
+}
