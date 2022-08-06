@@ -8,7 +8,7 @@
     "cli": "ts-node src/cli.ts",
     "archive": "git archive -o cli.zip HEAD",
     "lint": "eslint src/*.ts",
-    "test": "jest",
+    "test": "jest --silent",
     "coverage": "jest --coverage",
     "upgrade": "yarn upgrade-interactive"
   },
@@ -45,6 +45,12 @@
       "@typescript-eslint"
     ],
     "rules": {}
+  },
+  "jest": {
+	 "preset": "ts-jest",
+	 "testEnvironment": "node",
+	 "slowTestThreshold": 10,
+	 "verbose": true
   },
   "bin": "./src/cli.ts"
 }

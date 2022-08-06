@@ -6,7 +6,7 @@ import {ethers} from "ethers";
 import axios from 'axios';
 
 
-function formatWinstonTime( ms: number): string
+export function formatWinstonTime( ms: number): string
 {
     if( ms === undefined ) return "";
     if( ms < 1000) return ms.toString() + " ms";
