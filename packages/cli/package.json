@@ -10,7 +10,8 @@
     "lint": "eslint src/*.ts",
     "test": "jest --silent",
     "coverage": "jest --coverage",
-    "upgrade": "yarn upgrade-interactive"
+    "upgrade": "yarn upgrade-interactive",
+    "style": "prettier --write src/l3.js"
   },
   "dependencies": {
     "@kyctoken/config": "1.0.0",
@@ -24,6 +25,7 @@
     "@typescript-eslint/parser": "^5.32.0",
     "eslint": "^8.21.0",
     "jest": "^28.1.3",
+    "prettier": "2.7.1",
     "ts-jest": "^28.0.7",
     "typescript": "^4.7.4"
   },
@@ -47,10 +49,10 @@
     "rules": {}
   },
   "jest": {
-	 "preset": "ts-jest",
-	 "testEnvironment": "node",
-	 "slowTestThreshold": 10,
-	 "verbose": true
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "slowTestThreshold": 10,
+    "verbose": true
   },
   "bin": "./src/cli.ts"
 }
