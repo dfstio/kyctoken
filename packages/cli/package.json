@@ -10,8 +10,6 @@
     "lint": "eslint src/*.ts",
     "test": "jest",
     "coverage": "jest --coverage",
-    "build": "tsc",
-    "clean": "rm -r dist/*",
     "upgrade": "yarn upgrade-interactive"
   },
   "dependencies": {

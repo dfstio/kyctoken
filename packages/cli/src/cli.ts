@@ -1,5 +1,5 @@
 #! /usr/bin/env ts-node
-import { Command } from'commander';
+import { Command } from 'commander';
 const program = new Command();
 import { L3 } from "./l3";
 
