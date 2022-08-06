@@ -11,7 +11,7 @@
     "test": "jest --silent",
     "coverage": "jest --coverage",
     "upgrade": "yarn upgrade-interactive",
-    "style": "prettier --write src/l3.js"
+    "style": "prettier --write src/*.ts"
   },
   "dependencies": {
     "@kyctoken/config": "1.0.0",
