@@ -24,6 +24,7 @@
     "hardhat-abi-exporter": "^2.10.0",
     "hardhat-contract-sizer": "^2.6.1",
     "hardhat-gas-reporter": "^1.0.8",
+    "hardhat-interface-generator": "^0.0.6",
     "prettier": "^2.7.1",
     "prettier-plugin-solidity": "^1.0.0-beta.24",
     "solidity-coverage": "^0.7.21",
@@ -41,12 +42,14 @@
     "compile": "hardhat compile",
     "style": "prettier --write contracts/*.sol",
     "deploy": "hardhat run --network mumbai scripts/deploy.ts",
+    "deploykyc": "hardhat run --network l3 scripts/deploykyc.ts",
     "uniswap": "hardhat run --network mumbai scripts/uniswap.js",
     "accounts": "hardhat accounts",
     "verify": "hardhat verify --network mumbai 0x66D0656D8F1A4C8477B68394A7F31A41d35cf4EA 1691371557",
     "test": "hardhat test --network hardhat --grep hardhat",
     "testl3": "hardhat test --network l3 --grep L3",
     "size": "hardhat size-contracts",
-    "abi": "hardhat export-abi"
+    "abi": "hardhat export-abi",
+    "interface": "yarn hardhat gen-interface contractname"
   }
 }

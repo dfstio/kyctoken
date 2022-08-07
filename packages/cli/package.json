@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@kyctoken/config": "1.0.0",
+    "@kyctoken/hardhat": "1.0.0",
     "axios": "^0.27.2",
     "commander": "^9.4.0",
     "ethers": "^5.6.9"
@@ -49,7 +50,7 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "slowTestThreshold": 10,
+    "slowTestThreshold": 40,
     "verbose": true
   },
   "bin": "./src/cli.ts"

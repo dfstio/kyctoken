@@ -3,6 +3,7 @@ import "@nomicfoundation/hardhat-toolbox";
 import '@typechain/hardhat'
 import 'hardhat-contract-sizer';
 import 'hardhat-abi-exporter';
+import "hardhat-interface-generator";
 
 import {KEY_OWNER, RELAY, RPC_GOERLI,  RPC_MUMBAI, RPC_L3_HARDHAT,  
 		 CHAINID_L3, KEY_ETHERSCAN, KEY_MUMBAI } from '@kyctoken/config';

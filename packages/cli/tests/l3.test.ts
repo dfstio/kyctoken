@@ -1,5 +1,7 @@
 import { L3, formatWinstonTime } from "../src/l3";
 
+jest.setTimeout(40000);
+
 describe("check L3", () => {
   it("should return 100", async () => {
     const percent:number = await L3();
