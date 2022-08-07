@@ -20,7 +20,9 @@
     "gitcreate": "git remote add originkyctoken https://github.com/Benjamin-Herald/kyctoken",
     "commit": "git commit -a -S -m",
     "githubcleartoken": "git config --global --unset credential.helper",
-    "link": "npm link"
+    "link": "npm link",
+    "style": "prettier --write packages/*/src/*.ts",
+    "upgradeinteractive": "yarn upgrade-interactive"
   },
   "bin": {
     "kyc": "./packages/cli/src/cli.ts"

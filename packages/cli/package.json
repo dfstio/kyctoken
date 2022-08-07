@@ -9,9 +9,7 @@
     "archive": "git archive -o cli.zip HEAD",
     "lint": "eslint src/*.ts",
     "test": "jest --silent",
-    "coverage": "jest --coverage",
-    "upgrade": "yarn upgrade-interactive",
-    "style": "prettier --write src/*.ts"
+    "coverage": "jest --coverage"
   },
   "dependencies": {
     "@kyctoken/config": "1.0.0",

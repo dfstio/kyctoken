@@ -5,8 +5,5 @@
   "main": "config.json",
   "author": "Benjamind Herald",
   "license": "MIT",
-  "private": true,
-  "devDependencies": {
-    "typescript": "^4.7.4"
-  }
+  "private": true
 }
