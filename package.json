@@ -16,7 +16,7 @@
     "start": "yarn ",
     "build": "yarn ",
     "cli": "yarn workspace @kyctoken/cli cli",
-    "push": "git push -u originkyctoken master",
+    "push": "git status && git push -u originkyctoken master",
     "gitcreate": "git remote add originkyctoken https://github.com/Benjamin-Herald/kyctoken",
     "commit": "git commit -a -S -m",
     "githubcleartoken": "git config --global --unset credential.helper",
