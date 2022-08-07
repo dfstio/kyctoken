@@ -31,7 +31,7 @@ https://mumbaifaucet.com/
 ## Contracts
 
 KYC contract is deployed to mumbai network at address 
-https://mumbai.polygonscan.com/address/0x91478CfAFbD29F4c89CD2e4e89506AFFb89651df  
+https://mumbai.polygonscan.com/address/ 
 
 ## Usage:
 ```

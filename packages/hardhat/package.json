@@ -2,7 +2,7 @@
   "name": "@kyctoken/hardhat",
   "version": "1.0.0",
   "description": "KYC token - typescript with hardhat",
-  "main": "index.js",
+  "main": "typechain-types/index.ts",
   "license": "MIT",
   "private": true,
   "devDependencies": {

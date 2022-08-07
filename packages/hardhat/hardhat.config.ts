@@ -1,5 +1,6 @@
 import { HardhatUserConfig, task } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
+import '@typechain/hardhat'
 import 'hardhat-contract-sizer';
 import 'hardhat-abi-exporter';
 
