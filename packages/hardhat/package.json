@@ -34,15 +34,16 @@
   },
   "dependencies": {
     "@kyctoken/config": "1.0.0",
-    "@openzeppelin/contracts": "^4.7.2"
+    "@openzeppelin/contracts": "^4.7.2",
+    "fs": "^0.0.1-security"
   },
   "scripts": {
     "balance": "hardhat balance --network l3 0x07171714bE2b2e12B4F38270d446fB8bc82bb767",
     "archive": "git archive -o list-contracts.zip HEAD",
     "compile": "hardhat compile",
-    "style": "prettier --write contracts/*.sol",
+    "style": "prettier --write contracts/*.sol && prettier --write scripts/*.ts",
     "deploy": "hardhat run --network mumbai scripts/deploy.ts",
-    "deploykyc": "hardhat run --network l3 scripts/deploykyc.ts",
+    "deploykyc": "hardhat run --network mumbai scripts/deployktoken.ts",
     "uniswap": "hardhat run --network mumbai scripts/uniswap.js",
     "accounts": "hardhat accounts",
     "verify": "hardhat verify --network mumbai 0x66D0656D8F1A4C8477B68394A7F31A41d35cf4EA 1691371557",

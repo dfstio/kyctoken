@@ -1,5 +1,5 @@
 import { RPC_L3_ENDPOINT, RPC_L3_PASSWORD, RPC_L3_USER, KYC_L3_ADDRESS, KEY_OWNER } from '@kyctoken/config';
-import { KYC__factory } from '@kyctoken/hardhat';
+import { KERC20__factory } from '@kyctoken/hardhat';
 import { KYC } from '@kyctoken/hardhat';
 
 const RPC_L3 = {
@@ -19,7 +19,7 @@ export async function setLimit(account: string): Promise<KYC.KYCverificationStru
     const balance = await provider.getBalance(address);
     console.log(`Balance of ${address} is ${Number(balance) / 1000000000000000000}`);
 
-    const kyc = KYC__factory.connect(KYC_L3_ADDRESS, signer);
+    const kyc = KERC20__factory.connect(KYC_L3_ADDRESS, signer);
 
     /*
     export type KYClimitStruct = {
@@ -64,10 +64,10 @@ export async function setLimit(account: string): Promise<KYC.KYCverificationStru
     console.log('TX sent: ', tx.hash);
     const receipt = await tx.wait(2);
     console.log('Transaction block:', receipt.blockNumber);
-    const check1 = await kyc.precheck(account, operation, BigInt(0.5 * 1e18));
+    const check1 = await kyc.kycTest(account, operation, BigInt(0.5 * 1e18));
     console.log(`Check KYC ${KYC_L3_ADDRESS} for 0.5 is ${check1}`);
 
-    const check2 = await kyc.precheck(account, operation, BigInt(10 * 1e18));
+    const check2 = await kyc.kycTest(account, operation, BigInt(10 * 1e18));
     console.log(`Check KYC ${KYC_L3_ADDRESS} for 10 is ${check2}`);
 
     return verification;

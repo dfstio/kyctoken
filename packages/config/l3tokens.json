@@ -1,0 +1,4 @@
+[
+{"id":0,"token":"KETH","address":"0x99A44B9614f9329357b072CB69D607509Ef83f15","currency":"ETH","name":"KYC token ETH","owner":"0xA5833655C441D486FB1DabCeb835f44DA73bf5E7"},
+{"id":1,"token":"KBTC","address":"0xd5afB434b1D67b2011AAcf89B0935a2c2474c49e","currency":"BTC","name":"KYC token BTC","owner":"0xA5833655C441D486FB1DabCeb835f44DA73bf5E7"}
+]

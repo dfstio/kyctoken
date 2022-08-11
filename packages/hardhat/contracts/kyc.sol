@@ -5,8 +5,8 @@ import '@openzeppelin/contracts/access/Ownable.sol';
 
 contract KYC is Ownable {
     enum Operation {
-        OperationTransferFrom,
-        OperationTransferTo
+        TransferFrom,
+        TransferTo
     }
 
     struct KYClimit {
@@ -30,8 +30,7 @@ contract KYC is Ownable {
 
     event VerificationAdded(address indexed account, Operation indexed operation);
     event VerificationRemoved(address indexed account, Operation indexed operation);
-    event CheckPassed(address indexed account, Operation indexed operation, uint256 amount);
-    event CheckFailed(address indexed account, Operation indexed operation, uint256 amount);
+    event TransferFailed(address indexed from, address indexed to, uint256 amount);
     event PriceChanged(uint256 newPrice, uint256 oldPrice);
 
     constructor(uint256 price) {
@@ -62,24 +61,31 @@ contract KYC is Ownable {
         verification[account][operation].expiry = 0;
     }
 
-    function check(
-        address account,
-        Operation operation,
+    function kycCheck(
+        address from,
+        address to,
         uint256 amount
-    ) external returns (bool) {
-        (bool result, ) = precheck(account, operation, amount);
-        if (result) emit CheckPassed(account, operation, amount);
-        else emit CheckFailed(account, operation, amount);
-        return result;
+    ) internal returns (bool) {
+        (bool resultFrom, ) = kycTest(from, Operation.TransferFrom, amount);
+        if (resultFrom) {
+            (bool resultTo, ) = kycTest(to, Operation.TransferTo, amount);
+            if (resultTo) {
+                transactions[from][Operation.TransferFrom].push(Transaction(amount, block.timestamp));
+                transactions[to][Operation.TransferTo].push(Transaction(amount, block.timestamp));
+                return true;
+            }
+        }
+        emit TransferFailed(from, to, amount);
+        return false;
     }
 
-    function precheck(
+    function kycTest(
         address account,
         Operation operation,
         uint256 amount
     ) public view returns (bool result, string memory reason) {
         if (block.timestamp > verification[account][operation].expiry || verification[account][operation].limits.length == 0)
-            return (false, 'KYC: no limit');
+            return (false, 'KYC: there is no limit');
         uint256 index = 0; //index of KYClimit[] limits
         uint256 total = 0;
         uint256 size = transactions[account][operation].length;
