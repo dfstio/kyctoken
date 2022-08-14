@@ -25,11 +25,9 @@ export async function uniswap() {
     await trader();
     await setLimit(UNISWAP_QUOTER_ADDRESS, true);
 
-    let i;
-    let k;
     let gas: Gas;
 
-    for (j = 0; j < tokens.length; j++) {
+    for (let j = 0; j < tokens.length; j++) {
         const token = tokens[j];
         console.log('Approving ', token.token, '...');
         const kyc = KERC20__factory.connect(token.address, signer);
@@ -42,8 +40,8 @@ export async function uniswap() {
         await tx.wait(2);
     }
 
-    for (k = 0; k < tokens.length - 1; k++) {
-        for (i = k + 1; i < tokens.length; i++) {
+    for (let k = 0; k < tokens.length - 1; k++) {
+        for (let i = k + 1; i < tokens.length; i++) {
             try {
                 console.log('Minting', tokens[k].token, tokens[i].token);
                 const amounti = 100 * prices[i]; //parseInt(10000 * prices[i]);

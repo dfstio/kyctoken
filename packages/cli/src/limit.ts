@@ -76,8 +76,8 @@ async function limit(
     const limits: KYC.KYClimitStruct[] = isTrader
         ? [{ amount: ethers.utils.parseEther('1000000'), period: 60 }]
         : [
-              { amount: ethers.utils.parseEther('1000'), period: 60 } //,
-              //{ amount: ethers.utils.parseEther('10000'), period: 600 }
+              { amount: ethers.utils.parseEther('1000'), period: 60 },
+              { amount: ethers.utils.parseEther('10000'), period: 600 }
           ];
     const currentTimestampInSeconds: number = Math.round(Date.now() / 1000);
     const ONE_DAY_IN_SECS: number = 24 * 60 * 60;

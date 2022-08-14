@@ -1,4 +1,4 @@
 [
-{"id":0,"token":"KETH","address":"0x24629D679Df09Fba9F814eC6fd40D9e480671CCe","currency":"ETH","name":"KYC token ETH","owner":"0xA5833655C441D486FB1DabCeb835f44DA73bf5E7"},
-{"id":1,"token":"KBTC","address":"0x772bD5638a79721942d89a469ECc227471ae9490","currency":"BTC","name":"KYC token BTC","owner":"0xA5833655C441D486FB1DabCeb835f44DA73bf5E7"}
+{"id":0,"token":"KETH","address":"0xC02135d15C703672bA3ECCDe5BA57c1AA1AC00F0","currency":"ETH","name":"KYC token ETH","owner":"0xA5833655C441D486FB1DabCeb835f44DA73bf5E7"},
+{"id":1,"token":"KBTC","address":"0x6c124322f38a668210fC0e1F7EDea2D17405afD4","currency":"BTC","name":"KYC token BTC","owner":"0xA5833655C441D486FB1DabCeb835f44DA73bf5E7"}
 ]
