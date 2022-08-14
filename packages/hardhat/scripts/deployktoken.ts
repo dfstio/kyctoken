@@ -67,7 +67,7 @@ async function main() {
             }
         }
     }
-    const filename = 'tokens.json';
+    const filename = networkName + '-tokens.json';
 
     const writeData = JSON.stringify(contracts, (_, v) => (typeof v === 'bigint' ? v.toString() : v))
         .replaceAll('},', '},\n')
@@ -78,7 +78,12 @@ async function main() {
     });
 
     const ownerBalance2 = await hre.ethers.provider.getBalance(owner);
-    console.log('Deployer balance:', (Number(ownerBalance2) / 1e18).toFixed(4), 'was spent:', Number((Number(ownerBalance) - Number(ownerBalance2)) / 1e18).toFixed(4));
+    console.log(
+        'Deployer balance:',
+        (Number(ownerBalance2) / 1e18).toFixed(4),
+        'was spent:',
+        Number((Number(ownerBalance) - Number(ownerBalance2)) / 1e18).toFixed(4)
+    );
 }
 
 // We recommend this pattern to be able to use async/await everywhere

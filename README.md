@@ -41,3 +41,7 @@ Usage (from kyctoken folder): kyc [options] [command]
 
 
 ## TODO
+
+QUOTER_ADDRESSES: '0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6'
+pool: 0x7512e2646c841886edf12c29864e88a2243dc7ed
+uniswap: 0xc36442b4a4522e871399cd717abdd847ab11fe88

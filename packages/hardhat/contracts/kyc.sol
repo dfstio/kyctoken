@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.9;
+pragma solidity ^0.8.15;
 
 import '@openzeppelin/contracts/access/Ownable.sol';
 
@@ -86,17 +86,17 @@ contract KYC is Ownable {
     ) public view returns (bool result, string memory reason) {
         if (block.timestamp > verification[account][operation].expiry || verification[account][operation].limits.length == 0)
             return (false, 'KYC: there is no limit');
-        uint256 index = 0; //index of KYClimit[] limits
-        uint256 total = 0;
+
+        if (amount * _price > verification[account][operation].limits[0].amount) return (false, 'KYC: low limit');
         uint256 size = transactions[account][operation].length;
-        if (size == 0) {
-            if (amount * _price <= verification[account][operation].limits[0].amount) return (true, '');
-            else return (false, 'KYC: low limit');
-        } else {
-            for (uint256 i = size - 1; i >= 0; i--) {
-                total += transactions[account][operation][i].amount;
+        if (size != 0) {
+            uint256 index = 0; //index of KYClimit[] limits
+            uint256 total = amount;
+
+            for (uint256 i = size; i > 0; i--) {
+                total += transactions[account][operation][i - 1].amount;
                 while (
-                    transactions[account][operation][i].timestamp <
+                    transactions[account][operation][i - 1].timestamp <
                     (block.timestamp - verification[account][operation].limits[index].period)
                 ) {
                     index++;

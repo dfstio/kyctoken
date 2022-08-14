@@ -3,7 +3,8 @@ import { Command } from 'commander';
 const program = new Command();
 import { L3 } from './l3';
 import { setPrice } from './price';
-import { setLimit } from './limit';
+import { setLimit, trader } from './limit';
+import { uniswap } from './uniswap';
 
 program.name('kyc').description('CLI for KYC token').version('1.0.0');
 
@@ -28,9 +29,27 @@ program
     .command('limit')
     .description('Set KYC limit to address')
     .argument('<address>', 'address')
-    .action(async (address) => {
-        console.log('Setting limit to ', address);
-        await setLimit(address);
+    .option('--trader', 'set high limit for trader')
+    .action(async (address, options) => {
+        const trader: boolean = options.trader ? true : false;
+        console.log('Setting limit to ', trader ? 'trader' : '', address);
+        await setLimit(address, trader);
+    });
+
+program
+    .command('trader')
+    .description('Set KYC limit to trader')
+    .action(async () => {
+        console.log('Setting limit to trader...');
+        await trader();
+    });
+
+program
+    .command('pool')
+    .description('Create UNISWAP pool')
+    .action(async () => {
+        console.log('Creating Uniswap pool...');
+        await uniswap();
     });
 
 async function main() {

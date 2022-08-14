@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.9;
+pragma solidity ^0.8.15;
 
 // Import this file to use console.log
 import 'hardhat/console.sol';
