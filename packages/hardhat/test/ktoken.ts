@@ -160,8 +160,6 @@ describe('KERC20 - hardhat', function () {
                 .to.emit(contract, 'TransferFailed')
                 .withArgs(account1.address, account2.address, ethers.utils.parseEther('4'));
         });
-
-        
     });
 
     describe('Transfers - limit2', function () {
@@ -263,8 +261,8 @@ describe('KERC20 - hardhat', function () {
                 .to.emit(contract, 'TransferFailed')
                 .withArgs(account1.address, account2.address, ethers.utils.parseEther('10'));
         });
-        
-                it('Should transfer 40000 next year', async function () {
+
+        it('Should transfer 40000 next year', async function () {
             const { contract, owner, account1, account2 } = await initLimit2();
             await expect(contract.connect(account1).transfer(account2.address, ethers.utils.parseEther('10')))
                 .to.emit(contract, 'Transfer')
@@ -282,12 +280,11 @@ describe('KERC20 - hardhat', function () {
                 .to.emit(contract, 'Transfer')
                 .withArgs(account1.address, account2.address, ethers.utils.parseEther('10'));
 
-			const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;
+            const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;
             await time.increaseTo((await time.latest()) + ONE_YEAR_IN_SECS);
             await expect(contract.connect(account1).transfer(account2.address, ethers.utils.parseEther('10')))
                 .to.emit(contract, 'Transfer')
                 .withArgs(account1.address, account2.address, ethers.utils.parseEther('10'));
         });
-
     });
 });

@@ -151,3 +151,25 @@ export async function uniswap() {
         ethers.utils.formatEther(traderBalance.sub(traderBalance2))
     );
 }
+
+export async function pool() {
+    const provider: ethers.providers.Provider = new ethers.providers.JsonRpcProvider(RPC_MUMBAI);
+
+    for (let k = 0; k < tokens.length - 1; k++) {
+        for (let i = k + 1; i < tokens.length; i++) {
+            try {
+                console.log('Setting limit', tokens[k].token, tokens[i].token);
+
+                const LEUR = new Token(80001, tokens[i].address, 18, tokens[i].token, 'KYC token ' + tokens[i].currency);
+                const LUSD = new Token(80001, tokens[k].address, 18, tokens[k].token, 'KYC token ' + tokens[k].currency);
+
+                let poolAddress = Pool.getAddress(LUSD, LEUR, 10000);
+                let code = await provider.getCode(poolAddress);
+                console.log('Pool address:', poolAddress, 'size:', code.length);
+                await setLimit(poolAddress, true);
+            } catch (error) {
+                console.error('catch', (<any>error).toString().substr(0, 500));
+            }
+        }
+    }
+}

@@ -4,7 +4,7 @@ const program = new Command();
 import { L3 } from './l3';
 import { setPrice } from './price';
 import { setLimit, trader } from './limit';
-import { uniswap } from './uniswap';
+import { uniswap, pool } from './uniswap';
 
 program.name('kyc').description('CLI for KYC token').version('1.0.0');
 
@@ -45,11 +45,19 @@ program
     });
 
 program
-    .command('pool')
+    .command('uniswap')
     .description('Create UNISWAP pool')
     .action(async () => {
         console.log('Creating Uniswap pool...');
         await uniswap();
+    });
+
+program
+    .command('pool')
+    .description('Set UNISWAP 1% pool limit')
+    .action(async () => {
+        console.log('Setting UNISWAP 1% pool limit...');
+        await pool();
     });
 
 async function main() {
